@@ -6,6 +6,13 @@ const songList = {
       composer: "Hayashi Kei (LIVE LAB.)",
       arranger: "Murata Yuichi (LIVE LAB.)",
       writer: "Hayashi Kei (LIVE LAB.)"
+    },
+    "Ato Ichi Meetoru": {
+      kanjiName: "あと一メートル",
+      englishName: "One More Metre",
+      composer: "Hayashi Kei (LIVE LAB.)",
+      arranger: "Horie Shouta",
+      writer: "Hayashi Kei (LIVE LAB.)"
     }
   },
   "Kusunoki Tomori": {

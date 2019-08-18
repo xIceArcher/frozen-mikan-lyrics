@@ -22,7 +22,7 @@ const MainPanel = ({ songName, style }) => {
 
       const file = await fetch(enPath);
       const fileText = await file.text();
-      setEnLines(fileText.split(/\r?\n/));
+      setEnLines(fileText.split(/ *\r?\n/));
     })();
   }, [songName, enPath]);
 
@@ -32,7 +32,7 @@ const MainPanel = ({ songName, style }) => {
 
       const file = await fetch(kanjiPath);
       const fileText = await file.text();
-      setKanjiLines(fileText.split(/\r?\n/));
+      setKanjiLines(fileText.split(/ *\r?\n/));
     })();
   }, [songName, kanjiPath]);
 
