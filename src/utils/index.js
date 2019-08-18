@@ -1,11 +1,15 @@
 const noCapitalise = ["no", "wa", "de", "o", "ni"];
 
 const capitaliseFirst = str =>
-  noCapitalise.includes(str)
+  noCapitalise.includes(str) || str.length === 0
     ? str
     : str[0].toUpperCase() + str.substring(1, str.length);
 
-export const toUnderscore = str => {};
+export const toUnderscore = str =>
+  str
+    .split(" ")
+    .map(word => word.toLowerCase())
+    .join("_");
 
 export const toReadable = str =>
   str
