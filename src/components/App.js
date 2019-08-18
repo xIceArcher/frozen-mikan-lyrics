@@ -7,7 +7,7 @@ import MainPanel from "./MainPanel";
 import { NO_SONG } from "../constants";
 
 const App = () => {
-  const { Sider, Content } = Layout;
+  const { Sider, Content, Footer } = Layout;
 
   const [currSong, setCurrSong] = useState(NO_SONG);
 
@@ -32,6 +32,7 @@ const App = () => {
         <Content style={{ margin: "0 16px" }}>
           <MainPanel songName={currSong} style={{ textAlign: "center" }} />
         </Content>
+        <Footer />
       </Layout>
     </Layout>
   );
