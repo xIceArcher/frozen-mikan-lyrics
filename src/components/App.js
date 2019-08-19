@@ -8,11 +8,16 @@ import { NO_SONG } from "../constants";
 
 const App = () => {
   const { Sider, Content, Footer } = Layout;
+  const [collapsed, setCollapsed] = useState(false);
 
   const [currSong, setCurrSong] = useState(NO_SONG);
 
   const onSelect = ({ key }) => {
     setCurrSong(key);
+  };
+
+  const onCollapse = () => {
+    setCollapsed(!collapsed);
   };
 
   return (
@@ -25,8 +30,10 @@ const App = () => {
           position: "fixed",
           left: 0
         }}
+        collapsible
+        onCollapse={onCollapse}
       >
-        <Sidebar onSelect={onSelect} />
+        <Sidebar onSelect={onSelect} collapsed={collapsed} />
       </Sider>
       <Layout style={{ marginLeft: 200 }}>
         <Content style={{ margin: "0 16px" }}>

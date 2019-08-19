@@ -13,6 +13,13 @@ const songList = {
       composer: "Hayashi Kei (LIVE LAB.)",
       arranger: "Horie Shouta",
       writer: "Hayashi Kei (LIVE LAB.)"
+    },
+    Kutsuhimo: {
+      kanjiName: "くつひも",
+      englishName: "Shoelaces",
+      composer: "Nio",
+      arranger: "sugarbeans",
+      writer: "Hayashi Kei (LIVE LAB.)"
     }
   },
   "Kusunoki Tomori": {

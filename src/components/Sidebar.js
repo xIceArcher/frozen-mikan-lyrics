@@ -4,23 +4,28 @@ import { Menu, Icon } from "antd";
 import songList from "../songList";
 import SubMenu from "antd/lib/menu/SubMenu";
 
-const Sidebar = ({ onSelect }) => {
+const Sidebar = ({ onSelect, collapsed }) => {
   return (
-    <Menu theme="dark" mode="inline" onSelect={onSelect}>
+    <Menu
+      theme="dark"
+      mode="inline"
+      onSelect={onSelect}
+      inlineCollapsed={collapsed}
+    >
       {Object.entries(songList).map(([artist, artistSongList]) => (
         <SubMenu
           key={artist}
           title={
             <span>
               <Icon type="user" />
-              <span>{artist}</span>
+              {collapsed || <span>{artist}</span>}
             </span>
           }
         >
           {Object.keys(artistSongList).map(song => (
             <Menu.Item key={song}>
               <Icon type="audio" />
-              <span>{song}</span>
+              {collapsed || <span>{song}</span>}
             </Menu.Item>
           ))}
         </SubMenu>
