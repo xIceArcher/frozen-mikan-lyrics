@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "860ffe1bff04931376d34cf33dc430d1",
+    "revision": "8d5fd7366875bf758d0c4618c7954ec7",
     "url": "/frozen-mikan-lyrics/index.html"
   },
   {
-    "revision": "a46d350db2762e21afd5",
+    "revision": "6e6c21705e441a833351",
     "url": "/frozen-mikan-lyrics/static/css/2.e8d046a2.chunk.css"
   },
   {
-    "revision": "51093c9785f61c351423",
+    "revision": "2cb4c5d0f368887170ee",
     "url": "/frozen-mikan-lyrics/static/css/main.2680dfa7.chunk.css"
   },
   {
-    "revision": "a46d350db2762e21afd5",
-    "url": "/frozen-mikan-lyrics/static/js/2.ec04fa75.chunk.js"
+    "revision": "6e6c21705e441a833351",
+    "url": "/frozen-mikan-lyrics/static/js/2.61b3c488.chunk.js"
   },
   {
-    "revision": "51093c9785f61c351423",
-    "url": "/frozen-mikan-lyrics/static/js/main.06e93086.chunk.js"
+    "revision": "2cb4c5d0f368887170ee",
+    "url": "/frozen-mikan-lyrics/static/js/main.5737e6bf.chunk.js"
   },
   {
     "revision": "65504e87b1a56ec2dbff",
