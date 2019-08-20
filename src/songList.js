@@ -1,4 +1,11 @@
 const songList = {
+  Aqours: {
+    "Deep Resonance": {
+      composer: "Kuwabara Satoru (Arte Refact)",
+      arranger: "Sakai Takuya (Arte Refact)",
+      writer: "Hata Aki"
+    }
+  },
   "Saito Shuka": {
     "Kotoba no Mahou": {
       kanjiName: "ことばの魔法",
