@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col } from "antd";
+import { Row, Col, Checkbox } from "antd";
 
 import { toUnderscore } from "../utils";
 import { NO_SONG } from "../constants";
@@ -15,6 +15,13 @@ const MainPanel = ({ songName, style }) => {
   const kanjiPath = `${process.env.PUBLIC_URL}/songs/kanji/${toUnderscore(
     songName
   )}.txt`;
+
+  const defaultDisplayOptions = ["Kanji", "English"];
+  const [checkedList, setCheckedList] = useState(defaultDisplayOptions);
+
+  const onChange = list => {
+    setCheckedList(list);
+  };
 
   useEffect(() => {
     (async function() {
@@ -41,17 +48,30 @@ const MainPanel = ({ songName, style }) => {
       <Row style={style}>
         <SongMetadata songName={songName} />
       </Row>
+      <Row style={style}>
+        {songName === NO_SONG || (
+          <Checkbox.Group
+            options={defaultDisplayOptions}
+            value={checkedList}
+            onChange={onChange}
+          />
+        )}
+      </Row>
       <Row>
-        <Col span={12} style={style}>
-          {kanjiLines.map((line, idx) => (
-            <div key={idx}>{line === "" ? <br /> : line}</div>
-          ))}
-        </Col>
-        <Col span={12} style={style}>
-          {enLines.map((line, idx) => (
-            <div key={idx}>{line === "" ? <br /> : line}</div>
-          ))}
-        </Col>
+        {checkedList.includes("Kanji") && (
+          <Col span={24 / checkedList.length} style={style}>
+            {kanjiLines.map((line, idx) => (
+              <div key={idx}>{line === "" ? <br /> : line}</div>
+            ))}
+          </Col>
+        )}
+        {checkedList.includes("English") && (
+          <Col span={24 / checkedList.length} style={style}>
+            {enLines.map((line, idx) => (
+              <div key={idx}>{line === "" ? <br /> : line}</div>
+            ))}
+          </Col>
+        )}
       </Row>
     </div>
   );
