@@ -22,10 +22,7 @@ const App = () => {
       <Layout>
         <Content style={{ margin: "0 16px" }}>
           <Router>
-            <MainPanel
-              path="frozen-mikan-lyrics/songs/:songName"
-              style={{ textAlign: "center" }}
-            />
+            <MainPanel path="songs/:songName" style={{ textAlign: "center" }} />
           </Router>
         </Content>
         <Footer />

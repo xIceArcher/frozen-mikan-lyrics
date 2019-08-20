@@ -21,7 +21,7 @@ const Sidebar = ({ onSelect }) => {
         >
           {Object.keys(artistSongList).map(song => (
             <Menu.Item key={song}>
-              <Link to={`frozen-mikan-lyrics/songs/${toUnderscore(song)}`}>
+              <Link to={`songs/${toUnderscore(song)}`}>
                 <Icon type="audio" />
                 <span>{song}</span>
               </Link>
