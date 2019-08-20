@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Checkbox } from "antd";
 
-import { toUnderscore } from "../utils";
-import { NO_SONG } from "../constants";
 import SongMetadata from "./SongMetadata";
 
 const MainPanel = ({ songName, style }) => {
   const [enLines, setEnLines] = useState([]);
   const [kanjiLines, setKanjiLines] = useState([]);
 
-  const enPath = `${process.env.PUBLIC_URL}/songs/english/${toUnderscore(
-    songName
-  )}.txt`;
-  const kanjiPath = `${process.env.PUBLIC_URL}/songs/kanji/${toUnderscore(
-    songName
-  )}.txt`;
+  const enPath = `${process.env.PUBLIC_URL}/songs/english/${songName}.txt`;
+  const kanjiPath = `${process.env.PUBLIC_URL}/songs/kanji/${songName}.txt`;
 
   const defaultDisplayOptions = ["Kanji", "English"];
   const [checkedList, setCheckedList] = useState(defaultDisplayOptions);
@@ -25,8 +19,6 @@ const MainPanel = ({ songName, style }) => {
 
   useEffect(() => {
     (async function() {
-      if (songName === NO_SONG) return;
-
       const file = await fetch(enPath);
       const fileText = await file.text();
       setEnLines(fileText.split(/ *\r?\n/));
@@ -35,8 +27,6 @@ const MainPanel = ({ songName, style }) => {
 
   useEffect(() => {
     (async function() {
-      if (songName === NO_SONG) return;
-
       const file = await fetch(kanjiPath);
       const fileText = await file.text();
       setKanjiLines(fileText.split(/ *\r?\n/));
@@ -49,13 +39,11 @@ const MainPanel = ({ songName, style }) => {
         <SongMetadata songName={songName} />
       </Row>
       <Row style={style}>
-        {songName === NO_SONG || (
-          <Checkbox.Group
-            options={defaultDisplayOptions}
-            value={checkedList}
-            onChange={onChange}
-          />
-        )}
+        <Checkbox.Group
+          options={defaultDisplayOptions}
+          value={checkedList}
+          onChange={onChange}
+        />
       </Row>
       <Row>
         {checkedList.includes("Kanji") && (

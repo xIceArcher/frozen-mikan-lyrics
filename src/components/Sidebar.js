@@ -1,17 +1,14 @@
 import React from "react";
 import { Menu, Icon } from "antd";
+import { Link } from "@reach/router";
 
 import songList from "../songList";
 import SubMenu from "antd/lib/menu/SubMenu";
+import { toUnderscore } from "../utils";
 
 const Sidebar = ({ onSelect, collapsed }) => {
   return (
-    <Menu
-      theme="dark"
-      mode="inline"
-      onSelect={onSelect}
-      inlineCollapsed={collapsed}
-    >
+    <Menu theme="dark" mode="inline" onSelect={onSelect}>
       {Object.entries(songList).map(([artist, artistSongList]) => (
         <SubMenu
           key={artist}
@@ -24,8 +21,10 @@ const Sidebar = ({ onSelect, collapsed }) => {
         >
           {Object.keys(artistSongList).map(song => (
             <Menu.Item key={song}>
-              <Icon type="audio" />
-              <span>{song}</span>
+              <Link to={`songs/${toUnderscore(song)}`}>
+                <Icon type="audio" />
+                <span>{song}</span>
+              </Link>
             </Menu.Item>
           ))}
         </SubMenu>
