@@ -6,7 +6,7 @@ import songList from "../songList";
 import SubMenu from "antd/lib/menu/SubMenu";
 import { toUnderscore } from "../utils";
 
-const Sidebar = ({ onSelect, collapsed }) => {
+const Sidebar = ({ onSelect }) => {
   return (
     <Menu theme="dark" mode="inline" onSelect={onSelect}>
       {Object.entries(songList).map(([artist, artistSongList]) => (
@@ -21,7 +21,7 @@ const Sidebar = ({ onSelect, collapsed }) => {
         >
           {Object.keys(artistSongList).map(song => (
             <Menu.Item key={song}>
-              <Link to={`songs/${toUnderscore(song)}`}>
+              <Link to={`frozen-mikan-lyrics/songs/${toUnderscore(song)}`}>
                 <Icon type="audio" />
                 <span>{song}</span>
               </Link>
