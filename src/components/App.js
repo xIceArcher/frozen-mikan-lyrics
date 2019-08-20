@@ -22,20 +22,10 @@ const App = () => {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider
-        onSelect={onSelect}
-        style={{
-          overflow: "auto",
-          height: "100vh",
-          position: "fixed",
-          left: 0
-        }}
-        collapsible
-        onCollapse={onCollapse}
-      >
+      <Sider onSelect={onSelect} collapsible onCollapse={onCollapse}>
         <Sidebar onSelect={onSelect} collapsed={collapsed} />
       </Sider>
-      <Layout style={{ marginLeft: 200 }}>
+      <Layout>
         <Content style={{ margin: "0 16px" }}>
           <MainPanel songName={currSong} style={{ textAlign: "center" }} />
         </Content>
