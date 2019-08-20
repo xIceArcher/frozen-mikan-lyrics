@@ -18,14 +18,14 @@ const Sidebar = ({ onSelect, collapsed }) => {
           title={
             <span>
               <Icon type="user" />
-              {collapsed || <span>{artist}</span>}
+              <span>{artist}</span>
             </span>
           }
         >
           {Object.keys(artistSongList).map(song => (
             <Menu.Item key={song}>
               <Icon type="audio" />
-              {collapsed || <span>{song}</span>}
+              <span>{song}</span>
             </Menu.Item>
           ))}
         </SubMenu>
