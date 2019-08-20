@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3f24e7b1d6e4b9fd784491a34526997c",
+    "revision": "631723e1d8df94eb58351046d8651f4f",
     "url": "/frozen-mikan-lyrics/index.html"
   },
   {
