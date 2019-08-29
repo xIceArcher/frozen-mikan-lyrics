@@ -1,4 +1,4 @@
-const noCapitalise = ["no", "wa", "de", "o", "ni"];
+const noCapitalise = ["no", "wa", "de", "o", "ni", "mo"];
 
 const capitaliseFirst = str =>
   noCapitalise.includes(str) || str.length === 0

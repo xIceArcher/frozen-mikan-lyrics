@@ -27,6 +27,26 @@ const songList = {
       composer: "Nio",
       arranger: "sugarbeans",
       writer: "Hayashi Kei (LIVE LAB.)"
+    },
+    "Dare Yori mo Yowai Hito de Kamawanai": {
+      kanjiName: "誰よりも弱い人でかまわない",
+      englishName: "I Wouldn't Mind Becoming the Weakest Person on This Planet",
+      composer: "Hayashi Kei (LIVE LAB.)",
+      arranger: "Murata Yuichi (LIVE LAB.)",
+      writer: "Hayashi Kei (LIVE LAB.)"
+    },
+    Refleclight: {
+      kanjiName: "リフレクライト",
+      composer: "Hayashi Kei (LIVE LAB.)",
+      arranger: "Komatsu Kazuya",
+      writer: "Hayashi Kei (LIVE LAB.)"
+    },
+    "Hero ni Naritakatta": {
+      kanjiName: "ヒーローになりたかった",
+      englishName: "I Wanted to be A Hero",
+      composer: "Hayashi Kei (LIVE LAB.)",
+      arranger: "sugarbeans",
+      writer: "Hayashi Kei (LIVE LAB.)"
     }
   },
   "Kusunoki Tomori": {
