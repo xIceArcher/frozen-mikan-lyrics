@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b01e19989824559c18cbadd6c83163c7",
+    "revision": "69449f1cad9000ad847518b2aa150ab1",
     "url": "/frozen-mikan-lyrics/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frozen-mikan-lyrics/static/css/2.e8d046a2.chunk.css"
   },
   {
-    "revision": "78764e0002fd495d4efa",
+    "revision": "80d4dceda56cb0d0a2ac",
     "url": "/frozen-mikan-lyrics/static/css/main.2680dfa7.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frozen-mikan-lyrics/static/js/2.9d9d8ce5.chunk.js"
   },
   {
-    "revision": "78764e0002fd495d4efa",
-    "url": "/frozen-mikan-lyrics/static/js/main.96ef2bb2.chunk.js"
+    "revision": "80d4dceda56cb0d0a2ac",
+    "url": "/frozen-mikan-lyrics/static/js/main.36fc9e11.chunk.js"
   },
   {
     "revision": "65504e87b1a56ec2dbff",
