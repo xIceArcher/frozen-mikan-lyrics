@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/frozen-mikan-lyrics/precache-manifest.20c963b3b113de1399a2d30df894967f.js"
+  "/frozen-mikan-lyrics/precache-manifest.cae96fbbbbfcfc98e518c7fb9f024864.js"
 );
 
 self.addEventListener('message', (event) => {
