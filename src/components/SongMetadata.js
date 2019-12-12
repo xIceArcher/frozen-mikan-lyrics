@@ -14,16 +14,33 @@ const SongMetadata = ({ songName }) => {
   }
 
   return (
-    <div style={{ margin: "10px" }}>
-      <h1 className="romajiTitle">{toReadable(songName)}</h1>
-      {Object.entries(songListWithoutArtist[toReadable(songName)]).map(
-        ([property, value], index) => (
-          <div key={index} className={property}>{`${
-            SONG_METADATA_PROPERTIES[property]
-          }${value}`}</div>
-        )
-      )}
-    </div>
+    <>
+      <div style={{ margin: "10px" }}>
+        <h1 className="romajiTitle">{toReadable(songName)}</h1>
+        {Object.entries(songListWithoutArtist[toReadable(songName)]).map(
+          ([property, value], index) =>
+            property !== "_spotifySongCode" ? (
+              <div
+                key={index}
+                className={property}
+              >{`${SONG_METADATA_PROPERTIES[property]}${value}`}</div>
+            ) : (
+              <>
+                <br />
+                <iframe
+                  src={`https://open.spotify.com/embed/track/${value}`}
+                  width="300"
+                  height="80"
+                  frameborder="0"
+                  allowtransparency="true"
+                  allow="encrypted-media"
+                  title="spotify-embed"
+                ></iframe>
+              </>
+            )
+        )}
+      </div>
+    </>
   );
 };
 

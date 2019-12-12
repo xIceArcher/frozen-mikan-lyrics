@@ -12,41 +12,51 @@ const songList = {
       englishName: "The Magic of Words",
       composer: "Hayashi Kei (LIVE LAB.)",
       arranger: "Murata Yuichi (LIVE LAB.)",
-      writer: "Hayashi Kei (LIVE LAB.)"
+      writer: "Hayashi Kei (LIVE LAB.)",
+      _spotifySongCode: "5XLJfszbzObEdL6xk2VUPO"
     },
     "Ato Ichi Meetoru": {
       kanjiName: "あと一メートル",
       englishName: "One More Metre",
       composer: "Hayashi Kei (LIVE LAB.)",
       arranger: "Horie Shouta",
-      writer: "Hayashi Kei (LIVE LAB.)"
+      writer: "Hayashi Kei (LIVE LAB.)",
+      _spotifySongCode: "5PE1gaRmGEqn5RC7O9OukM"
     },
     Kutsuhimo: {
       kanjiName: "くつひも",
       englishName: "Shoelaces",
       composer: "Nio",
       arranger: "sugarbeans",
-      writer: "Hayashi Kei (LIVE LAB.)"
+      writer: "Hayashi Kei (LIVE LAB.)",
+      _spotifySongCode: "2yYCjPn9x03ACCNAoYlXAr"
     },
     "Dare Yori mo Yowai Hito de Kamawanai": {
       kanjiName: "誰よりも弱い人でかまわない",
       englishName: "I Wouldn't Mind Becoming the Weakest Person on This Planet",
       composer: "Hayashi Kei (LIVE LAB.)",
       arranger: "Murata Yuichi (LIVE LAB.)",
-      writer: "Hayashi Kei (LIVE LAB.)"
+      writer: "Hayashi Kei (LIVE LAB.)",
+      _spotifySongCode: "08W0cHpgNczCEnIIh0XjE3"
     },
     Refleclight: {
       kanjiName: "リフレクライト",
       composer: "Hayashi Kei (LIVE LAB.)",
       arranger: "Komatsu Kazuya",
-      writer: "Hayashi Kei (LIVE LAB.)"
+      writer: "Hayashi Kei (LIVE LAB.)",
+      _spotifySongCode: "404COWRsKOwScRTxqbWJyy"
     },
     "Hero ni Naritakatta": {
       kanjiName: "ヒーローになりたかった",
       englishName: "I Wanted to be A Hero",
       composer: "Hayashi Kei (LIVE LAB.)",
       arranger: "sugarbeans",
-      writer: "Hayashi Kei (LIVE LAB.)"
+      writer: "Hayashi Kei (LIVE LAB.)",
+      _spotifySongCode: "61Du2nQNuejsJCdgqOJgqx"
+    },
+    Papapa: {
+      kanjiName: "パパパ",
+      _spotifySongCode: "4gfows8m3GrIS3hAEaYXW5"
     }
   },
   "Kusunoki Tomori": {
