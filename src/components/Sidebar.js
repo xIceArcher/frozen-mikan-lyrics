@@ -1,33 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, Icon } from "antd";
 import { Link } from "@reach/router";
 
-import songList from "../songList";
-import SubMenu from "antd/lib/menu/SubMenu";
-import { toUnderscore } from "../utils";
+import { getAllSongs } from "../api";
 
 const Sidebar = ({ onSelect }) => {
+  const [songList, setSongList] = useState([]);
+
+  useEffect(() => {
+    (async function() {
+      setSongList(await getAllSongs());
+    })();
+  }, []);
+
   return (
     <Menu theme="dark" mode="inline" onSelect={onSelect}>
-      {Object.entries(songList).map(([artist, artistSongList]) => (
-        <SubMenu
-          key={artist}
-          title={
-            <span>
-              <Icon type="user" />
-              <span>{artist}</span>
-            </span>
-          }
-        >
-          {Object.keys(artistSongList).map(song => (
-            <Menu.Item key={song}>
-              <Link to={`songs/${toUnderscore(song)}`}>
-                <Icon type="audio" />
-                <span>{song}</span>
-              </Link>
-            </Menu.Item>
-          ))}
-        </SubMenu>
+      {songList.map(({ str_id, title: { romaji } }) => (
+        <Menu.Item key={str_id}>
+          <Link to={`songs/${str_id}`}>
+            <Icon type="audio" />
+            <span>{romaji}</span>
+          </Link>
+        </Menu.Item>
       ))}
     </Menu>
   );

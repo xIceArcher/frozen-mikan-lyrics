@@ -3,12 +3,12 @@ import { Row, Col, Checkbox } from "antd";
 
 import SongMetadata from "./SongMetadata";
 
+import { getSong } from "../api";
+
 const MainPanel = ({ songName, style }) => {
+  const [songData, setSongData] = useState({});
   const [enLines, setEnLines] = useState([]);
   const [kanjiLines, setKanjiLines] = useState([]);
-
-  const enPath = `${process.env.PUBLIC_URL}/songs/english/${songName}.txt`;
-  const kanjiPath = `${process.env.PUBLIC_URL}/songs/kanji/${songName}.txt`;
 
   const defaultDisplayOptions = ["Kanji", "English"];
   const [checkedList, setCheckedList] = useState(defaultDisplayOptions);
@@ -19,24 +19,19 @@ const MainPanel = ({ songName, style }) => {
 
   useEffect(() => {
     (async function() {
-      const file = await fetch(enPath);
-      const fileText = await file.text();
-      setEnLines(fileText.split(/ *\r?\n/));
+      const songData = await getSong(songName);
+      setSongData(songData);
+      setEnLines(songData.lyrics.en ? songData.lyrics.en.split(/ *\r?\n/) : []);
+      setKanjiLines(
+        songData.lyrics.kanji ? songData.lyrics.kanji.split(/ *\r?\n/) : []
+      );
     })();
-  }, [songName, enPath]);
-
-  useEffect(() => {
-    (async function() {
-      const file = await fetch(kanjiPath);
-      const fileText = await file.text();
-      setKanjiLines(fileText.split(/ *\r?\n/));
-    })();
-  }, [songName, kanjiPath]);
+  }, [songName]);
 
   return (
     <div>
       <Row style={style}>
-        <SongMetadata songName={songName} />
+        <SongMetadata songData={songData} />
       </Row>
       <Row style={style}>
         <Checkbox.Group
