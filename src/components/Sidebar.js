@@ -14,10 +14,17 @@ const Sidebar = ({ onSelect }) => {
   }, []);
 
   return (
-    <Menu theme="dark" mode="inline" onSelect={onSelect}>
+    <Menu theme="dark" onSelect={onSelect}>
       {songList.map(({ str_id, title: { romaji } }) => (
         <Menu.Item key={str_id}>
-          <Link to={`songs/${str_id}`}>
+          <Link
+            to={`songs/${str_id}`}
+            style={{
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis"
+            }}
+          >
             <Icon type="audio" />
             <span>{romaji}</span>
           </Link>

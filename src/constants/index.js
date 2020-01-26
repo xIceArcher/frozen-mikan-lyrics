@@ -2,10 +2,11 @@
 export const DEFAULT_GRID_COLUMN_NUM = 24;
 
 // Display options
-export const LYRICS_FIELDS = ["kanji", "en"];
+export const LYRICS_FIELDS = ["kanji", "romaji", "en"];
 
 export const LYRICS_FIELDS_DISPLAY_NAMES = [
   { label: "Kanji", value: "kanji" },
+  { label: "Romaji", value: "romaji" },
   { label: "English", value: "en" }
 ];
 

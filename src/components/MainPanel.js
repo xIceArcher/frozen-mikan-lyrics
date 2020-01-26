@@ -50,6 +50,7 @@ const MainPanel = ({ songName, style }) => {
           }}
         />
       </Row>
+      <br />
       <Row>
         {checkedList.map(checkedField => (
           <Col

@@ -11,13 +11,12 @@ const SongMetadata = ({ songData }) => {
       <div style={{ margin: "10px" }}>
         <h1 className="romajiTitle">{songData.title.romaji}</h1>
         {Object.entries(songData.title).map(([property, value], index) =>
-          property === "romaji" ? null : (
+          property === "romaji" || !value ? null : (
             <div key={`title-${index}`} className={property}>
               {value}
             </div>
           )
         )}
-        <br />
         {SONG_METADATA_FIELDS.map((fieldName, index) => (
           <div
             key={index}

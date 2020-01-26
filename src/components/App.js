@@ -15,8 +15,15 @@ const App = () => {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Sider collapsible onCollapse={onCollapse}>
+    <Layout style={{ height: "100vh" }}>
+      <Sider
+        collapsible
+        onCollapse={onCollapse}
+        style={{
+          overflowY: "auto",
+          height: "100vh"
+        }}
+      >
         <Sidebar collapsed={collapsed} />
       </Sider>
       <Layout>
