@@ -1,9 +1,12 @@
 import React from "react";
 
-import { SONG_METADATA_PROPERTIES, METADATA_FIELDS } from "../constants";
+import {
+  SONG_METADATA_DISPLAY_NAMES,
+  SONG_METADATA_FIELDS
+} from "../constants";
 
 const SongMetadata = ({ songData }) => {
-  return Object.entries(songData).length !== 0 ? (
+  return Object.entries(songData).length ? (
     <>
       <div style={{ margin: "10px" }}>
         <h1 className="romajiTitle">{songData.title.romaji}</h1>
@@ -15,11 +18,11 @@ const SongMetadata = ({ songData }) => {
           )
         )}
         <br />
-        {METADATA_FIELDS.map((fieldName, index) => (
+        {SONG_METADATA_FIELDS.map((fieldName, index) => (
           <div
             key={index}
             className={fieldName}
-          >{`${SONG_METADATA_PROPERTIES[fieldName]}${songData[fieldName]}`}</div>
+          >{`${SONG_METADATA_DISPLAY_NAMES[fieldName]}${songData[fieldName]}`}</div>
         ))}
       </div>
     </>
