@@ -66,6 +66,7 @@ const MainPanel = ({ songName, style }) => {
           </Col>
         ))}
       </Row>
+      <br />
     </div>
   );
 };
