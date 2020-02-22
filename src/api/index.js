@@ -5,10 +5,10 @@ const API_SETLIST_PATH = `${API_BASE_PATH}/setlists`;
 
 export async function getAllSongs() {
   const response = await fetch(API_SONGS_PATH);
-  return response.json();
+  return response.ok ? response.json() : {};
 }
 
 export async function getSong(title) {
   const response = await fetch(`${API_SONGS_PATH}?title=${title}`);
-  return response.json();
+  return response.ok ? response.json() : {};
 }
