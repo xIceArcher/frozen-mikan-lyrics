@@ -7,32 +7,42 @@ import { getAllSongs, getAllSetlists } from "../api";
 const { Search } = Input;
 
 const Sidebar = ({ onSelect }) => {
-  const DEFAULT_SETLIST_FILTER_WORD = "Show all";
+  const DEFAULT_SETLIST = "Show all";
 
-  const [masterSongList, setMasterSongList] = useState([]);
-  const [masterSetlist, setMasterSetlist] = useState([]);
+  const [masterSongs, setMasterSongs] = useState([]);
+  const [masterSetlists, setMasterSetlists] = useState([]);
 
   const [filterWord, setFilterWord] = useState("");
-  const [filterSetlistWord, setFilterSetlistWord] = useState(
-    DEFAULT_SETLIST_FILTER_WORD
-  );
 
-  const songFilter = song => {
-    const isSearched = song.title.romaji
-      .toLowerCase()
-      .includes(filterWord.toLowerCase());
+  const [visibleSongs, setVisibleSongs] = useState([]);
 
-    const isInSetlist =
-      filterSetlistWord === DEFAULT_SETLIST_FILTER_WORD ||
-      masterSetlist[filterSetlistWord].includes(song.str_id);
+  const songFilter = song =>
+    song.title.romaji.toLowerCase().includes(filterWord.toLowerCase());
 
-    return isSearched && isInSetlist;
+  const onSetlistChange = newSetlist => {
+    if (newSetlist === DEFAULT_SETLIST) {
+      setVisibleSongs(masterSongs);
+      return;
+    }
+
+    const newVisibleSongs = [];
+    masterSetlists[newSetlist].forEach(songName => {
+      const songData = masterSongs.find(song => song.str_id === songName);
+      if (songData) {
+        newVisibleSongs.push(songData);
+      }
+    });
+
+    setVisibleSongs(newVisibleSongs);
   };
 
   useEffect(() => {
     (async function() {
-      setMasterSongList(await getAllSongs());
-      setMasterSetlist(await getAllSetlists());
+      const songList = await getAllSongs();
+
+      setMasterSongs(songList);
+      setVisibleSongs(songList);
+      setMasterSetlists(await getAllSetlists());
     })();
   }, []);
 
@@ -40,11 +50,11 @@ const Sidebar = ({ onSelect }) => {
     <>
       <Select
         style={{ width: "100%" }}
-        defaultValue={DEFAULT_SETLIST_FILTER_WORD}
-        onChange={value => setFilterSetlistWord(value)}
+        defaultValue={DEFAULT_SETLIST}
+        onChange={onSetlistChange}
       >
-        {[DEFAULT_SETLIST_FILTER_WORD]
-          .concat(Object.keys(masterSetlist).sort())
+        {[DEFAULT_SETLIST]
+          .concat(Object.keys(masterSetlists))
           .map((setlist, idx) => (
             <Select.Option value={setlist} key={`setlist-${idx}`}>
               {setlist}
@@ -53,10 +63,12 @@ const Sidebar = ({ onSelect }) => {
       </Select>
       <Search
         placeholder="Search..."
-        onChange={e => setFilterWord(e.target.value)}
+        onChange={e => {
+          setFilterWord(e.target.value);
+        }}
       />
       <Menu theme="dark" onSelect={onSelect}>
-        {masterSongList
+        {visibleSongs
           .filter(songFilter)
           .map(({ str_id, title: { romaji } }) => (
             <Menu.Item key={str_id}>

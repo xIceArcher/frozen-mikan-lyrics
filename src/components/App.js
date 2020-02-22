@@ -21,7 +21,7 @@ const App = () => {
         onCollapse={onCollapse}
         style={{
           overflowY: "auto",
-          height: "100vh"
+          height: "95vh"
         }}
       >
         <Sidebar collapsed={collapsed} />

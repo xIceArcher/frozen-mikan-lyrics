@@ -14,8 +14,6 @@ export async function getSong(title) {
 }
 
 export async function getAllSetlists() {
-  return {
-    "2L": ["aozora_jumping_heart", "step_zero_to_one"],
-    "3L": ["yozora_wa_nandemo_shitteru_no"]
-  };
+  const response = await fetch(API_SETLIST_PATH);
+  return response.ok ? response.json() : {};
 }
