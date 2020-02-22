@@ -7,7 +7,7 @@ import Sidebar from "./Sidebar";
 import MainPanel from "./MainPanel";
 
 const App = () => {
-  const { Sider, Content, Footer } = Layout;
+  const { Sider, Content } = Layout;
   const [collapsed, setCollapsed] = useState(false);
 
   const onCollapse = () => {
@@ -26,14 +26,11 @@ const App = () => {
       >
         <Sidebar collapsed={collapsed} />
       </Sider>
-      <Layout>
-        <Content style={{ margin: "0 16px" }}>
-          <Router>
-            <MainPanel path="songs/:songName" style={{ textAlign: "center" }} />
-          </Router>
-        </Content>
-        <Footer />
-      </Layout>
+      <Content style={{ margin: "0 16px" }}>
+        <Router>
+          <MainPanel path="songs/:songName" style={{ textAlign: "center" }} />
+        </Router>
+      </Content>
     </Layout>
   );
 };
