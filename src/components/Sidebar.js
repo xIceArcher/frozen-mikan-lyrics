@@ -6,7 +6,7 @@ import { getAllSongs, getAllSetlists } from "../api";
 
 const { Search } = Input;
 
-const Sidebar = ({ onSelect }) => {
+const Sidebar = ({ onSelect, collapsed }) => {
   const DEFAULT_SETLIST = "Show all";
 
   const [masterSongs, setMasterSongs] = useState([]);
@@ -72,7 +72,7 @@ const Sidebar = ({ onSelect }) => {
           .filter(songFilter)
           .map(({ str_id, title: { romaji } }) => (
             <Menu.Item key={str_id}>
-              <Tooltip title={romaji} placement="right">
+              {collapsed ? (
                 <Link
                   to={`songs/${str_id}`}
                   style={{
@@ -85,7 +85,22 @@ const Sidebar = ({ onSelect }) => {
 
                   <span>{romaji}</span>
                 </Link>
-              </Tooltip>
+              ) : (
+                <Tooltip title={romaji} placement="right">
+                  <Link
+                    to={`songs/${str_id}`}
+                    style={{
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis"
+                    }}
+                  >
+                    <Icon type="audio" />
+
+                    <span>{romaji}</span>
+                  </Link>
+                </Tooltip>
+              )}
             </Menu.Item>
           ))}
       </Menu>
